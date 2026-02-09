@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhehehe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- s1 -->
+  <div id="s1" class="screen active">
+    <p class="error-text">CRITICAL ERROR</p>
+    <h1>404</h1>
+    <p>Valentine Not Found.</p>
+    <button class="btn" onclick="next(1)">Attempt Recovery</button>
+  </div>
+
+  <!-- s2 -->
+  <div id="s2" class="screen">
+    <h3>ESTABLISHING CONNECTION</h3>
+    <div class="progress-container">
+      <div id="bar" class="progress-bar"></div>
+    </div>
+    <p id="percent">0%</p>
+  </div>
+
+  <!-- s3 -->
+  <div id="s3" class="screen">
+    <h3>STEP 1: RECOVERY PROTOCOL</h3>
+    <p>Please acknowledge:</p>
+    <h2 class="quote">"I love you more"</h2>
+
+    <canvas id="sig-canvas" width="300" height="150"></canvas>
+
+    <div class="controls">
+      <button class="btn-alt" onclick="clearCanvas()">Clear</button>
+      <button class="btn" onclick="next(3)">Submit Signature</button>
+    </div>
+  </div>
+
+  <!-- s4 -->
+  <div id="s4" class="screen">
+    <h3>STEP 2: PLAY TO PROCEED</h3>
+
+    <div class="grid" id="grid">
+      <div class="cell" onclick="play(0)"></div><div class="cell" onclick="play(1)"></div><div class="cell" onclick="play(2)"></div>
+      <div class="cell" onclick="play(3)"></div><div class="cell" onclick="play(4)"></div><div class="cell" onclick="play(5)"></div>
+      <div class="cell" onclick="play(6)"></div><div class="cell" onclick="play(7)"></div><div class="cell" onclick="play(8)"></div>
+    </div>
+
+    <div id="win-overlay" class="overlay">
+      <div class="overlay-card">
+        <h2>Yay! You just won my heart!</h2>
+        <button class="btn" onclick="closeOverlay()">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- s5 -->
+  <div id="s5" class="screen">
+    <h3>FINAL VERIFICATION</h3>
+    <h2>Will you be my Valentine?</h2>
+
+    <div class="btn-group">
+      <button class="btn" onclick="next(5)" style="background:#ff4d6d;">Yes</button>
+      <button class="btn" id="no-btn" onmouseover="moveNo()" onclick="moveNo()">No</button>
+    </div>
+  </div>
+
+  <!-- s6 -->
+  <div id="s6" class="screen">
+    <h1 class="success-text">CONNECTION ESTABLISHED!</h1>
+    <img src="assets/bears.gif" id="main-gif" class="hug-gif" alt="Bears Hugging">
+    <button class="btn" style="background:#ff4d6d" onclick="startCountdownTransition()">Yay!!!</button>
+  </div>
+
+  <!-- s7 -->
+  <div id="s7" class="screen">
+    <h1 class="wait-text">Wait a second!</h1>
+    <p>It is not over yet...</p>
+    <h1 id="count" class="big-count">3</h1>
+  </div>
+
+  <!-- s8 -->
+  <div id="s8" class="screen finale-active">
+    <div class="finale-container">
+
+      <!-- background hearts -->
+      <div class="bg-hearts" aria-hidden="true">
+        <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+        <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+      </div>
+
+      <h1 class="cute-heading" id="finale-title" onclick="revealFirstPage()">
+        Happy Valentines baby!
+      </h1>
+
+      <!-- PAGE 1 -->
+      <div id="page1" class="scrapbook-page">
+        <div class="center-content">
+          <div class="center-photo-frame">
+            <img src="assets/us.jpg" class="main-reveal-img" alt="Best Couple Photo">
+            <p class="caption">Best Couple or what</p>
+          </div>
+        </div>
+
+        <div class="paper-note">
+          <h3 class="handwritten">I love</h3>
+          <ol>
+            <li>your smile</li>
+            <li>your eyes</li>
+            <li class="emphasized">YOU</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- PAGE 2 -->
+      <div id="page2" class="scrapbook-page">
+        <div class="center-content">
+          <div class="letter-paper">
+            <div class="letter-top">
+              <div class="stamp">💌</div>
+              <div class="date">14 Feb</div>
+            </div>
+
+            <h2 class="letter-title handwritten">Me to you</h2>
+
+            <p>Dear <span class="handwritten">baby</span>,</p>
+            <p>
+              You have made my life so fun and I am so lucky to have you as my valentine.
+              Thank you for being an amazing girlfriend. I can't wait to do this every year.
+            </p>
+            <p>
+              I know I tell you this everyday but you are literally the most beautiful girl I know.
+              Anyways, don't cringe, I love you.
+            </p>
+
+            <div class="letter-signoff">
+              <p class="handwritten">Always forever,</p>
+              <p class="handwritten">Ashu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3 -->
+      <div id="page3" class="scrapbook-page">
+        <div class="center-content">
+          <div class="flower-box">
+            <img src="assets/roses.png" class="roses-img" alt="Roses">
+            <h2 class="handwritten">Undying Flowers For You</h2>
+          </div>
+        </div>
+
+        <div class="thought-bubble tb1">I will always love you<br>no matter what</div>
+        <div class="thought-bubble tb2">You are the best</div>
+        <div class="thought-bubble tb3">I miss you so much</div>
+        <div class="thought-bubble tb4">I can't wait to see<br>you again</div>
+      </div>
+
+      <!-- Toggle icon -->
+      <div id="nav-env" class="nav-fab bottom-right hidden-at-start" onclick="cyclePages()">
+        <div class="nav-icon" id="nav-icon">✉️</div>
+        <p class="nav-label" id="nav-label">Open</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
